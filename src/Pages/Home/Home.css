@@ -2,3 +2,18 @@
     width: 95%;
     margin: auto;
 }
+
+.logo {
+    color: #0FCFEC;
+    background-color: #ECEEF2;
+    padding: 5px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 25px;
+    font-family: cursive;
+}
+
+.d {
+    color: #3A4256;
+    font-size: 17px;
+}
