@@ -6,8 +6,8 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        doctorTheme: {
-          primary: "#0FCFEC",
+        mytheme: {
+          primary: "red",
           secondary: "#19D3AE",
           accent: "#3A4256",
           neutral: "#3d4451",
@@ -18,5 +18,5 @@ module.exports = {
       "cupcake",
     ],
   },
-  plugins: [require("daisyui")]
+  plugins: [require("daisyui")],
 }
