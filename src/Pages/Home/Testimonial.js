@@ -6,11 +6,11 @@ import people3 from '../../assets/images/people3.png';
 const Testimonial = () => {
     return (
         <div className='pb-12'>
-            <din>
+            <div>
                 <p className='text-xl text-[#19D3AE] font-bold mt-10'>Testimonial</p>
                 <h1 className='text-3xl mt-2 pb-12'>What Our Patients Says</h1>
-            </din>
-            <din className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 <div className='p-5 rounded-lg shadow-xl'>
                     <p>It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content</p>
                     <div className='flex mt-5 border-x-cyan-500 border-2 px-3 py-1' >
@@ -41,7 +41,7 @@ const Testimonial = () => {
                         </div>
                     </div>
                 </div>
-            </din>
+            </div>
         </div>
     );
 };

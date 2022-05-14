@@ -3,22 +3,23 @@ import appointment from '../../assets/images/appointment.png';
 
 const HomeContactUs = () => {
     return (
-        <div class="hero py-10" style={{
+        <div className="hero py-10" style={{
             background: `url(${appointment})`
         }}>
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#ffff]">
-                <div class="card-body">
-                    <div class="form-control">
-                        <input type="text" placeholder="Email Address" class="input input-bordered text-[#ffff]" />
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#ECEEF2]">
+                <div className="card-body">
+                    <h1 className='text-center text-[#19D3AE] text-xl '><b>CONTACT US</b></h1>
+                    <div className="form-control">
+                        <input type="text" placeholder="Email Address" className="input input-bordered bg-[#3A4256] text-[#ffff]" />
                     </div>
-                    <div class="form-control">
-                        <input type="text" placeholder="Subject" class="input input-bordered text-[#ffff]" />
+                    <div className="form-control">
+                        <input type="text" placeholder="Subject" className="input input-bordered bg-[#3A4256] text-[#ffff]" />
                     </div>
-                    <div class="form-control">
-                        <textarea type="text" placeholder="Your message" class="input input-bordered text-[#ffff]" />
+                    <div className="form-control">
+                        <textarea type="text" placeholder="Your message" className="input input-bordered bg-[#3A4256] text-[#ffff]" />
                     </div>
-                    <div class="form-control mt-6">
-                        <button className="btn btn-primary">Submit</button>
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-[#ffff] text-xl">Submit</button>
                     </div>
                 </div>
             </div>
