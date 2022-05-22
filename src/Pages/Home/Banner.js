@@ -12,11 +12,11 @@ const Banner = () => {
                     background: `url(${bg})`,
                     backgroundSize: 'cover'
                 }}>
-                    <h1 className="text-5xl font-bold">Amin Dental Clinic</h1>
+                    <h1 className="titel text-5xl font-bold bg-gradient-to-r from-primary to-[#0C7592]">Amin Dental Clinic</h1>
                     <p className="py-6">Dental Clinic covers all subspecialties for different age groups including children, adults and people of old age. It is equipped following high quality standards and infection control system using an electronic sterilization unit designed to fulfill hygiene and sterilization effectiveness. The hospitals dental clinic,
 
                     </p>
-                    <button className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-[#ffff] text-xl">Get Started</button>
+                    <button className="btn btn-primary bg-gradient-to-r from-primary to-[#0C7592] text-[#ffff] text-xl">Get Started</button>
                 </div>
             </div>
         </div>

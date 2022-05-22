@@ -1,52 +1,72 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
-console.log(auth)
+const SignUp = () => {
 
-const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 
-    let loginError;
     const navigate = useNavigate();
-    const location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+    let loginError;
 
-    if (loading || gLoading) {
+    if (loading || gLoading || updating) {
         return <Loading></Loading>
     }
 
-    if (error || gError) {
-        loginError = <p>{error?.message || gError?.message}</p>
+    if (error || gError || updateError) {
+        loginError = <p>{error?.message || gError?.message || updateError?.message}</p>
     }
     if (user || gUser) {
-        navigate(from, { replace: true });
+        console.log(gUser)
     }
 
     const onSubmit = async data => {
         console.log(data)
-        await signInWithEmailAndPassword(data.email, data.password);
-        // navigate('/appointment');
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
+        console.log('update done');
+        navigate('/appointment');
     };
 
     return (
         <div className="flex mt-3 justify-center items-start ">
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-secondary text-2xl font-bold">Login</h2>
+                    <h2 className="text-center text-secondary text-2xl font-bold">SignUp</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Type Your Name</span>
+                            </label>
+                            <input
+                                type="name"
+                                placeholder="Type Your Name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    },
+                                })}
+
+                            />
+                            <label className="label">
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-600">{errors.name.message}</span>}
+                            </label>
+                        </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Type Your Email</span>
@@ -100,11 +120,11 @@ const Login = () => {
                         <p><small className='text-red-600 '>{loginError}</small></p>
                         <input
                             type="submit"
-                            value="Login"
+                            value="Sign Up"
                             className="btn w-full max-w-xs btn-secondary text-sky-50 text-bold"
                         />
                     </form>
-                    <p><small>New to Doctors Portal <Link className='text-primary' to="/signUp">Create New Account</Link></small></p>
+                    <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
@@ -117,4 +137,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

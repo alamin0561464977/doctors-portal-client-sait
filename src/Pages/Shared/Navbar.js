@@ -1,18 +1,26 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import '../Home/Home.css'
 
 const Navbar = () => {
+    const logout = () => {
+        signOut(auth);
+    };
+
+    const [user, loading, error] = useAuthState(auth)
     const NavbarLink = <>
         <li><Link className='mx-1' to='/'>Home</Link></li>
         <li><Link className='mx-1' to='/appointment'>Appointment</Link></li>
         <li><Link className='mx-1' to='/about'>About</Link></li>
         <li><Link className='mx-1' to='/reviews'>Reviews</Link></li>
         <li><Link className='mx-1' to='/contactUs'>Contact Us</Link></li>
-        <li><Link className='mx-1' to='/login'>Login</Link></li>
+        <li>{user ? <button class="btn btn-ghost" onClick={logout}>Log Out</button> : <Link className='mx-1' to='/login'>Login</Link>}</li>
     </>
     return (
-        <div className="navbar bg-[#647393] text-[#ffff] container mx-auto justify-start">
+        <div className="navbar bg-[#647393] text-[#ffff] container mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">

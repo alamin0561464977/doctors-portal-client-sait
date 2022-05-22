@@ -17,3 +17,9 @@
     color: #3A4256;
     font-size: 17px;
 }
+
+.titel {
+    border-left: 10px solid black;
+    padding: 10px 20px;
+    border-radius: 7px;
+}

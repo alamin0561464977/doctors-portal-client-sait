@@ -19,7 +19,7 @@ const HomeContactUs = () => {
                         <textarea type="text" placeholder="Your message" className="input input-bordered bg-[#3A4256] text-[#ffff]" />
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-[#ffff] text-xl">Submit</button>
+                        <button className="btn btn-primary bg-gradient-to-r from-primary to-[#0C7592] text-[#ffff] text-xl">Submit</button>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ const HomeAppointment = () => {
                 <h3 className='text-xl text-[#19D3AE] font-bold'>Appointment</h3>
                 <h2 className='text-3xl text-white my-5'>Make an Appointment Today</h2>
                 <p className='text-white pr-5'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente earum ab cupiditate autem accusantium expedita sequi, temporibus, aut illo doloribus quaerat explicabo, assumenda consectetur est vel ad sed maiores doloremque consequatur. Amet consequuntur quibusdam autem, quod maxime qui itaque quaerat.</p>
-                <button className="btn btn-primary my-5 bg-gradient-to-r from-primary to-secondary text-[#ffff] text-xl">Get Started</button>
+                <button className="btn btn-primary my-5 bg-gradient-to-r from-primary to-[#0C7592] text-[#ffff] text-xl">Get Started</button>
             </div>
         </section>
     );
